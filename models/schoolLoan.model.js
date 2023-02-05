@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-require('mongoose-Double')(mongoose); 
+// require('mongoose-Double')(mongoose); 
 
 
 
@@ -24,9 +24,9 @@ const SchoolLoanParticular = mongoose.model('SchoolLoanParticular', schoolLoanPa
 const schoolLoanParticularsSpecifications = new mongoose.Schema({
     id: {type: Number},
     schoolLoanParticularId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanParticular'},
-    rate_of_interest: {type: mongoose.Schema.Types.Double},
+    rate_of_interest: {type: Number},
 
-    amount: {type: mongoose.Schema.Types.Double},
+    amount: {type: Number},
 
     type_of_collection: {type: String, required: true}, //monthly, once,
     
@@ -74,12 +74,12 @@ const schoolLoanAssign = new mongoose.Schema({
     memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},
     //schoolLoanParticularId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanParticular'},
     
-    loan_amount: {type: mongoose.Schema.Types.Double},
+    loan_amount: {type: Number},
     loan_date: { type: Date, default: Date.now },    
     loan_total_month_terms: {type: Number},   //84
     
-    //rate_of_interest: {type: mongoose.Schema.Types.Double},
-    current_balance: {type: mongoose.Schema.Types.Double},
+    //rate_of_interest: {type: Number},
+    current_balance: {type: Number},
     loan_last_term_no_paid: {type: Number},    //term no
 
     loan_close_date: { type: Date },    //clear loan date
@@ -101,13 +101,13 @@ const schoolLoanPayments = new mongoose.Schema({
 
     id: {type: Number},
     schoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},    
-    previous_balance: {type: mongoose.Schema.Types.Double},     // copied and assigned (auto)
+    previous_balance: {type: Number},     // copied and assigned (auto)
     loan_last_term_no_paid: {type: Number},                     // copied max then incremented then current term no assigned (auto)
 
-    loan_installment_total: {type: mongoose.Schema.Types.Double},   // calculated at last, then is_done: true
+    loan_installment_total: {type: Number},   // calculated at last, then is_done: true
 
     
-    current_balance: {type: mongoose.Schema.Types.Double},          // calculated at last, then is_done: true
+    current_balance: {type: Number},          // calculated at last, then is_done: true
 
     is_done: {type: mongoose.Schema.Types.Boolean, default: false},// when all calculated is done, back-ref should maintaind
     schoolLoanPaymentDetailIds: [{type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanPaymentDetail'}],
