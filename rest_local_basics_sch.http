@@ -1,0 +1,75 @@
+
+
+
+
+### Retrive all Financal Year Information (GET Page) ###
+GET  http://localhost:5000/api/basics/schools
+content-type: application/json
+
+
+### Retrive all Financal Year Information (GET Page) ###
+POST http://localhost:5000/api/basics/schools
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Manikchak High Madrasah(H.S)",
+    "dise": "19071515802",
+    "grade": "Higher Secondary",  
+    "eccs_name": "Manikchak High Madrasah ECCS Pvt Ltd",
+   
+    "schedule_time": "10:30am to 4:30pm",
+    
+    "vill": "Manikchak",
+    "post": "Manikchak",
+    "ps": "Lalgola",
+    "dist": "Murshidabad",
+    "pin": "742148",
+    "email": "manikchakhm1921@gmail.com",
+    "mobile": ["9801025012"],
+    "imgurl": ["https://www.shutterstock.com/image-vector/school-green-lawn-icon-flat-260nw-1935114662.jpg"],
+
+    "banklId": "63d1ddd71d8ff72dafa998cb",
+    "status": "active",
+    "remarks": "Not Applicable"
+}
+
+### Retrive all Financal Year Information (GET Page) ###
+PUT http://localhost:5000/api/basics/schools
+content-type: application/json
+
+{
+    "_id": "63d0de6b7c227b5a63e2abce",
+    "id": 1,
+    "name": "Manikchak High Madrasah(H.S) mmmm",
+    "dise": "19071515802",
+    "grade": "Higher Secondary",  
+    "eccs_name": "Manikchak High Madrasah ECCS Pvt Ltd",
+   
+    "schedule_time": "10:30am to 4:30pm",
+    
+    "vill": "Manikchak",
+    "post": "Manikchak",
+    "ps": "Lalgola",
+    "dist": "Murshidabad",
+    "pin": "742148",
+    "email": "manikchakhm1921@gmail.com",
+    "mobile": ["9801025012"],
+    "imgurl": ["https://www.shutterstock.com/image-vector/school-green-lawn-icon-flat-260nw-1935114662.jpg"],
+
+    "banklId": "63a27daae0be94f5d5f3233a",
+    "status": "active",
+    "remarks": "Not Applicable"
+}
+
+
+### Retrive all Financal Year Information (GET Page) ###
+DELETE http://localhost:5000/api/basics/schools
+content-type: application/json
+
+{
+    "_id": "63d0de6b7c227b5a63e2abce"
+}
+
+
+

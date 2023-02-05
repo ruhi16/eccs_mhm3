@@ -1,0 +1,66 @@
+
+
+### Register an user (POST Page) ###
+GET  http://localhost:5000/api/basics
+content-type: application/json
+
+
+### Register an user (POST Page) ###
+GET  http://localhost:5000/api/basics/financialyears
+content-type: application/json
+
+### Register an user (POST Page) ###
+GET  http://localhost:5000/api/basics/banks
+content-type: application/json
+
+
+### Register an user (POST Page) ###
+GET  http://localhost:5000/api/basics/schools
+content-type: application/json
+
+### Register an user (POST Page) ###
+GET  http://localhost:5000/api/basics/members
+content-type: application/json
+
+
+
+### Retrive all Financal Year Information (GET Page) ###
+GET  http://localhost:5000/api/basics/financialyears
+content-type: application/json
+
+
+### Retrive all Financal Year Information (GET Page) ###
+POST http://localhost:5000/api/basics/financialyears
+content-type: application/json
+
+{
+    "id": 1,
+    "financialYear_name":  "2021-2022",
+    "start_date": "2021-04-01",
+    "end_date": "2022-03-31",    
+    "remarks": "Not Applicable"
+}
+
+
+### Retrive all Financal Year Information (GET Page) ###
+PUT http://localhost:5000/api/basics/financialyears
+content-type: application/json
+
+{
+    "_id": "63cf6d7ef9f8fea119de4f8f",
+    "id": 1,
+    "financialYear_name":  "2021-2022",
+    "start_date": "2021-04-01",
+    "end_date": "2022-03-31",
+    "status": "active",
+    "remarks": "Not Applicable"
+}
+
+
+### Retrive all Financal Year Information (GET Page) ###
+DELETE http://localhost:5000/api/basics/financialyears
+content-type: application/json
+
+{
+    "_id": "63cf6d7ef9f8fea119de4f8f"
+}

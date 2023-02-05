@@ -1,0 +1,197 @@
+@ACCESS_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQ5MzAxNzMsImV4cCI6MTY3NTAxNjU3MywiYXVkIjoiNjNhMjdkYWFlMGJlOTRmNWQ1ZjMyMzNhIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.V6ltsNyKx5Zh9Qyl2OYHi4M1uFuD3MM73y1BeNeF1Zc
+@REFRESH_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQ5MzAxNzMsImV4cCI6MTcwNjQ4Nzc3MywiYXVkIjoiNjNhMjdkYWFlMGJlOTRmNWQ1ZjMyMzNhIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.qJt7MOzmafqZdPUO20CGcUCEO0S6G9_phme5md_Mrgs
+
+@schoolId=630b06b6a199681c56d152d3
+@sessionId=630ee5151774d6692d00c4b8
+
+### Live Root Page ###
+
+
+
+# ### Show all users (GET Page) ###
+# GET  http://localhost:5000/api/users
+# content-type: application/json
+
+# ### Show all users (GET Page) ###
+# GET  http://localhost:5000/api/members
+# content-type: application/json
+
+
+
+### Root Page ###
+GET http://localhost:5000/api/users
+content-type: application/json,
+authorization: {{ACCESS_TOKEN}}
+
+
+
+
+### Register Page ###
+POST  http://localhost:5000/api/users/register
+content-type: application/json
+
+{
+    "firstname":"Ayantika",
+    "lastname":"Das",
+    "panno":"attpd2692r",
+    "email":"hndas2022@gmail.com",
+    "password":"ab"
+}
+
+
+
+
+### Login Page ###
+POST  http://localhost:5000/api/users/login
+content-type: application/json
+
+{    
+    "email":"hndas20@gmail.com",
+    "password":"ab"
+}
+
+### Forgot Password Page ###
+POST  http://localhost:5000/api/users/forgot_password
+content-type: application/json
+
+{    
+    "email":"hndas2022@gmail.com"    
+}
+
+### Reset Password POST Page ###
+POST  http://localhost:5000/api/users/reset_password
+content-type: application/json
+
+{  
+    "email":"hndas2022@gmail.com", 
+    "reset_password_id":"7zrStX3Nerof8R6JHXk5",
+    "password":"abcd"    
+}
+
+### Verify Url Page ###
+GET  http://localhost:5000/api/users/Vd3coLF9JFXjYHJgYyY4
+content-type: application/json
+
+
+### Is_Verified Email Url (After Login, with AccTok) ###
+GET  http://localhost:5000/api/users/is_verify_email_url
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+### Verify Url only ###
+GET  http://localhost:5000/api/users/self/9MsapikmTQYVXKyKcW4C
+content-type: application/json
+
+
+
+
+
+
+### User's Dashboard
+GET http://localhost:5000/api/users
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+
+### Update Page ###
+PUT http://localhost:5000/api/users/update
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+{
+    "_id": "63005e632636b9fe1b53047f",
+    "firstname": "Ayantika Hari Narayan",
+    "lastname": "Das"
+}
+
+### Delete User ###
+DELETE http://localhost:5000/api/users/delete
+content-type: application/json
+
+{
+    "_id": "6144ed7d3a25d138702265a9"
+    
+}
+
+
+
+
+
+
+
+
+
+### Only Logged In & Authenticated User 
+GET http://localhost:5000/api/users
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+
+### All Users List original
+GET http://localhost:5000/api/users
+content-type: application/json
+
+
+
+
+
+
+### All Users List original
+GET http://localhost:5000/api/users/allalong
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+
+
+
+### All Users List
+GET http://localhost:5000/api/users/63a27daae0be94f5d5f3233a
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+### Address New
+POST http://localhost:5000/api/address
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+{
+    "pin": "742123",
+    "ps": "Azimganj",
+    "po": "Jiaganj",
+    "dist": "Murshidabad",
+    "state": "WestBengal"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

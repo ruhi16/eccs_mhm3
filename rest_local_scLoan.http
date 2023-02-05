@@ -1,0 +1,193 @@
+
+
+
+
+
+# '/api/schoolLoan'
+
+### Show all users (GET Page) ###
+GET  http://localhost:5000/api/schoolLoan
+content-type: application/json
+
+
+### Show all users (GET Page) ###
+GET  http://localhost:5000/api/schoolLoan/schoolLoanParticulars
+content-type: application/json
+
+### Show all users (GET Page) ###
+POST http://localhost:5000/api/schoolLoan/schoolLoanParticulars
+content-type: application/json
+
+{
+    "id": 1,
+    "short_name": "MT",
+    "full_name": "Mid Term Loan",
+    "description": "Distributed from Cooperative Bank Loan Fund.",
+    "type": "assign (assign/payment)",
+    
+    "schoollId": "63d1de101d8ff72dafa998ce",
+    "status": "active",
+    "remarks": "Not Applicable"
+
+}
+
+
+### Show all users (GET Page) ###
+PUT http://localhost:5000/api/schoolLoan/schoolLoanParticulars
+content-type: application/json
+
+{
+    "_id": "63d208460a91a24b630084d5",
+    "id": 1,
+    "short_name": "MT",
+    "full_name": "Mid Term Loan",
+    "description": "Distributed from Cooperative Bank Loan Fund.",
+    "type": "assign (assign/payment)",
+    
+    "schoollId": "63d1de101d8ff72dafa998ce",
+    "status": "active",
+    "remarks": "Not Applicable"
+
+}
+
+### Show all users (GET Page) ###
+DELETE http://localhost:5000/api/schoolLoan/schoolLoanParticulars
+content-type: application/json
+
+{
+    "_id": "63d208460a91a24b630084d5"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+### Show all users (GET Page) ###
+GET http://localhost:5000/api/schoolLoan/schoolLoanParticularsSpecifications
+content-type: application/json
+
+
+
+### Show all users (GET Page) ###
+POST http://localhost:5000/api/schoolLoan/schoolLoanParticularsSpecifications
+content-type: application/json
+
+{   
+    "id": 100,
+    "schoolLoanParticularId": "63d207e5561fa7beafed3bcb",
+    "rate_of_interest": 2.52,
+    "amount": 123.25,
+    "type_of_collection": "assign",    
+    "schoollId": "63d207e5561fa7beafed3bcb",
+    "status": "active",
+    "remarks": "Not Applicable"
+}
+
+
+### Show all users (GET Page) ###
+PUT http://localhost:5000/api/schoolLoan/schoolLoanParticularsSpecifications
+content-type: application/json
+
+{   
+    "_id": "63d4914918e68c90601764c9",
+    "id": 100,
+    "schoolLoanParticularId": "63d207e5561fa7beafed3bcb",
+    "rate_of_interest": 2.52,
+    "amount": 123.25,
+    "type_of_collection": "assign",    
+    "schoollId": "63d207e5561fa7beafed3bcb",
+    "status": "active",
+    "remarks": "Not Applicable"
+}
+
+
+
+
+
+
+
+
+
+
+### Show all users (GET Page) ###
+GET http://localhost:5000/api/schoolLoan/schoolLoanAssignDetails
+content-type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Show all users (GET Page) ###
+GET http://localhost:5000/api/schoolLoan/schoolLoanAssign
+content-type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Show all users (GET Page) ###
+GET http://localhost:5000/api/schoolLoan/schoolLoanPayments
+content-type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Show all users (GET Page) ###
+GET http://localhost:5000/api/schoolLoan/schoolLoanPaymentDetails
+content-type: application/json
+
+
+
+
+
+
+
+
+

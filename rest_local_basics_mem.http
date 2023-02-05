@@ -1,0 +1,78 @@
+
+
+
+
+### Register an user (POST Page) ###
+GET http://localhost:5000/api/members/members
+content-type: application/json
+
+### Register an user (POST Page) ###
+POST http://localhost:5000/api/members/members
+content-type: application/json
+
+{
+    "id": 1,
+    "eccs_member_id": "001",
+    "imageurl": ["https://www.shutterstock.com/image-photo/man-hands-holding-global-network-260nw-1801568002.jpg"],
+    "emp_id": "12345",
+    "mobile": ["9153122277"],
+    "full_name": "Hari Narayan Das",
+    "account_no": "0977010213714",
+    "bank_name": "Panjab National Bank",
+    "branch_name": "Dhulauri", 
+    "branch_address": "Dhulauri, Lalgola, Murshidabad, 742123", 
+    "branch_ifsc":"DLRC012345C",
+    "schoolId":"63a27daae0be94f5d5f3233a",
+    "userId": "63a27daae0be94f5d5f3233a",
+    "remarks":"not applicable"
+}
+
+
+### Register an user (POST Page) ###
+PUT http://localhost:5000/api/members/members
+content-type: application/json
+
+{
+    "_id": "63cec3616ceec0507c86b7bb",
+    "id": 1,
+    "eccs_member_id": "001",
+    "imageurl": ["https://www.shutterstock.com/image-photo/man-hands-holding-global-network-260nw-1801568002.jpg"],
+    "emp_id": "12345",
+    "mobile": ["9153122277"],
+    "full_name": "Hari Narayan Das new new",
+    "account_no": "0977010213714",
+    "bank_name": "Panjab National Bank",
+    "branch_name": "Dhulauri", 
+    "branch_address": "Dhulauri, Lalgola, Murshidabad, 742123", 
+    "branch_ifsc":"DLRC012345C",
+    "schoolId":"63a27daae0be94f5d5f3233a",
+    "userId": "63a27daae0be94f5d5f3233a",
+    "remarks":"not applicable",
+    "status":"active"
+}
+
+### Register an user (POST Page) ###
+DELETE http://localhost:5000/api/members/members
+content-type: application/json
+
+{
+    "_id": "63cec3616ceec0507c86b7bb",
+    "full_name": "Hari Narayan Das new new"    
+}
+
+
+
+
+
+### Register an user (POST Page) ###
+POST  http://localhost:5000/api/users/register
+content-type: application/json
+
+{    
+    "firstname": "Hari Narayan",
+    "lastname": "Das",
+    "email": "hndas20@gmail.com",
+    "password": "ab",
+    "panno": "attpd2692r"
+}
+

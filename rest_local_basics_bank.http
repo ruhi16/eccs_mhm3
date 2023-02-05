@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+
+
+
+
+### Retrive all Financal Year Information (GET Page) ###
+GET  http://localhost:5000/api/basics/banks
+content-type: application/json
+
+
+### Retrive all Financal Year Information (GET Page) ###
+POST http://localhost:5000/api/basics/banks
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Central Co-Operative Bank",
+    "bank_code": "1101100",
+        
+    "schedule_time": "10:30am to 4:30pm",
+    
+    "vill": "Lalgola",
+    "post": "Lalgola",
+    "ps": "Lalgola",
+    "dist": "Murshidabad",
+    "pin": "742148",
+
+    "email": "central-cooparativebank@gmail.com",    
+    //email: {type: String, required: true, lowercase: true},
+    "mobile": ["9800556644"],
+    "imgurl": ["https://img.freepik.com/premium-vector/bank-building-money-bank-financing-money-exchange-financial-services-atm-giving-out-money_625536-194.jpg?w=2000"],
+
+    "status":  "active",
+    "remarks": "Not Applicable"
+}
+
+### Retrive all Financal Year Information (GET Page) ###
+PUT http://localhost:5000/api/basics/banks
+content-type: application/json
+
+{
+    "_id": "63d022059e83b21211250b63",
+    "id": 1,
+    "name": "Central Co-Operative Bank",
+    "bank_code": "1101100",
+        
+    "schedule_time": "10:30am to 4:30pm",
+    
+    "vill": "Lalgolaaaaa",
+    "post": "Lalgola",
+    "ps": "Lalgola",
+    "dist": "Murshidabad",
+    "pin": "742148",
+
+    "email": "central-cooparativebank@gmail.com",    
+    //email: {type: String, required: true, lowercase: true},
+    "mobile": ["9800556644"],
+    "imgurl": ["https://img.freepik.com/premium-vector/bank-building-money-bank-financing-money-exchange-financial-services-atm-giving-out-money_625536-194.jpg?w=2000"],
+
+    "status":  "active",
+    "remarks": "Not Applicable"
+}
+
+
+### Retrive all Financal Year Information (GET Page) ###
+DELETE http://localhost:5000/api/basics/banks
+content-type: application/json
+
+{
+    "_id": "63d022059e83b21211250b63"
+    
+}
+
+

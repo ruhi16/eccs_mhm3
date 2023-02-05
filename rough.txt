@@ -1,0 +1,161 @@
+const schoolLoanSpecificationBreakupsSchema = new mongoose.Schema({
+    
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
+});
+const SchoolLoanSpecificationBreakups = mongoose.model('SchoolSpecificationBreakups', schoolLoanSpecificationBreakupsSchema);
+
+
+
+
+const schoolLoanSpecificationSchema = new mongoose.Schema({
+    school_loan_name: {type: String},
+    school_loan_type: {type: String},
+
+    school_loan_roi: {type: mongoose.Schema.Types.double},
+    school_loan_service_roi: {type: mongoose.Schema.Types.double},
+    school_loan_minimum_amt: {type: mongoose.Schema.Types.double},
+    school_loan_maximum_amt: {type: mongoose.Schema.Types.double},
+    school_loan_no_of_terms: {type: mongoose.Schema.Types.double},
+    school_loan_terms_over_roi: {type: mongoose.Schema.Types.double},
+   
+    
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
+});
+const SchoolLoanSpecification = mongoose.model('SchoolSpecification', schoolLoanSpecificationSchema);
+
+
+
+
+const schoolLoanAssignSchema = new mongoose.Schema({
+
+    loan_amount: {type: mongoose.Schema.Types.double},
+    loan_date: { type: Date, required: true },
+
+    memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},    
+    schooLoanSpecificaionlId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanSpecification'},
+
+
+    loan_close_date: { type: Date },
+    current_balance: {type: mongoose.Schema.Types.double},
+
+    schoolId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
+});
+const SchoolLoanAssign = mongoose.model('SchoolLoanAssign', schoolLoanAssignSchema);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const schoolLoanPaymentBreakupsSchema = new mongoose.Schema({
+
+    memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},
+    SchoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},
+
+    last_date_of_collection: {type: Date},
+    curr_date_of_collection: {type: Date},
+    no_of_days: {type: Number},
+    loan_installment_no: {type: Number},
+
+    is_transaction_complete: {type: mongoose.Schema.Types.Boolean, default: false},
+
+    schoolId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },
+});
+const SchoolLoanPaymentBreakups = mongoose.model('SchoolLoanPaymentBreakups', schoolLoanPaymentBreakupsSchema);
+
+
+
+const schoolLoanPaymentMonthlyScheduleSchema = new mongoose.Schema({
+
+    memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},
+    SchoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},
+
+    last_date_of_collection: {type: Date},
+    curr_date_of_collection: {type: Date},
+    no_of_days: {type: Number},
+    loan_installment_no: {type: Number},
+
+    is_transaction_complete: {type: mongoose.Schema.Types.Boolean, default: false},
+
+    schoolId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },    
+});
+const SchoolLoanPaymentMonthlySchedule = mongoose.model('SchoolLoanPaymentMonthlySchedule', schoolLoanPaymentMonthlyScheduleSchema);
+
+
+const schoolLoanPaymentMonthlyDetailsSchema = new mongoose.Schema({
+
+    memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},
+    SchoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},
+
+    last_date_of_collection: {type: Date},
+    curr_date_of_collection: {type: Date},
+    no_of_days: {type: Number},
+    loan_installment_no: {type: Number},
+
+    is_transaction_complete: {type: mongoose.Schema.Types.Boolean, default: false},
+
+    schoolId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },    
+});
+const SchoolLoanPaymentMonthlyDetails = mongoose.model('SchoolLoanPaymentMonthlyDetails', schoolLoanPaymentMonthlyDetailsSchema);
+
+const schoolLoanPaymentMonthlySchema = new mongoose.Schema({
+
+    memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},
+    SchoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},
+
+    last_date_of_collection: {type: Date},
+    curr_date_of_collection: {type: Date},
+    no_of_days: {type: Number},
+    loan_installment_no: {type: Number},
+
+    is_transaction_complete: {type: mongoose.Schema.Types.Boolean, default: false},
+
+    schoolId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now },    
+});
+const SchoolLoanPaymentMonthly = mongoose.model('SchoolLoanPaymentMonthly', schoolLoanPaymentMonthlySchema);
+
+
+
