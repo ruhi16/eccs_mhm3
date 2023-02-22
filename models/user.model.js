@@ -42,7 +42,8 @@ userSchema.post('save', function() {
         // const salt = await bcrypt.genSalt(10);
         // const hashedPassword = await bcrypt.hash(this.password, salt);
         // this.password = hashedPassword;
-
+        
+        this.password = undefined;
         this.verify_url = undefined;
         this.verify_otp = undefined;
         this.verify_otp = undefined;
