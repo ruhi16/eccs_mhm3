@@ -37,7 +37,26 @@ userSchema.pre('save', async function(next) {
 });
 
 
+userSchema.post('save', function() {
+    try{
+        // const salt = await bcrypt.genSalt(10);
+        // const hashedPassword = await bcrypt.hash(this.password, salt);
+        // this.password = hashedPassword;
 
+        this.verify_url = undefined;
+        this.verify_otp = undefined;
+        this.verify_otp = undefined;
+        this.is_otp_verified = undefined;
+        this.is_url_verified = undefined;
+        this.created_at = undefined;
+        this.updated_at = undefined;
+        this.__v = undefined;
+
+        
+    }catch(error){
+        next(error);
+    }
+});
 
 
 

@@ -153,7 +153,7 @@ router.post('/register', async (req, res, next) => {
         
 
         res.send({
-            user:savedUser,
+            user: savedUser,
             payload: 'dxysk',
         });
 
@@ -360,8 +360,8 @@ router.get('/allalong',  async(req, res, next) => {
             
         })
     }catch(err){
-        // console.log("err all users: "+err.message);
-        next(createError.Unauthorized("this is test"));  
+        // console.log("err all users: " + err.message);
+        next(createError.Unauthorized("this is test"));
     }
 });
 

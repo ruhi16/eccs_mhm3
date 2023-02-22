@@ -1,0 +1,35 @@
+@ACCESS_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzU5NTIxMjQsImV4cCI6MTY3NjAzODUyNCwiYXVkIjoiNjNhMjdkYWFlMGJlOTRmNWQ1ZjMyMzNhIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.TOspoKlhZz7-Fa4-o8XUWo4ykSL2NbxVKD6AsODfUY4
+@REFRESH_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzU5NTIxMjQsImV4cCI6MTcwNzUwOTcyNCwiYXVkIjoiNjNhMjdkYWFlMGJlOTRmNWQ1ZjMyMzNhIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.oPEoIGcHbmUiUz5SCemWNBSgzUc9nJ1sDBROxj6pqrE
+
+
+
+### Live Root Page ###
+
+
+
+### Root Page ###
+GET https://shy-cyan-sockeye-vest.cyclic.app/api/users
+content-type: application/json,
+authorization: {{ACCESS_TOKEN}}
+
+
+
+
+
+
+### Register Page ###
+GET https://shy-cyan-sockeye-vest.cyclic.app/api/users/register
+
+
+### Test Page ###
+GET https://shy-cyan-sockeye-vest.cyclic.app/api/users/allalong
+
+
+### Login Page ###
+POST  https://shy-cyan-sockeye-vest.cyclic.app/api/users/login
+content-type: application/json
+
+{    
+    "email":"hndas20@gmail.com",
+    "password":"ab"
+}

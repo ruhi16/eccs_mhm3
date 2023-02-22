@@ -11,6 +11,7 @@ const schoolLoanParticulars = new mongoose.Schema({
     purpose: {type: String},    // stloan mtloan 
     type: {type: String}, //assign or payment
     
+    
     schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
     status: {type: String, required: true, default: 'active'},
     remarks: {type: String},
@@ -43,33 +44,37 @@ const SchoolLoanParticularSpecifications = mongoose.model('SchoolLoanParticularS
 
 
 
-const schoolLoanAssignDetails = new mongoose.Schema({
 
+const schoolLoanAssignDetailsSchema = new mongoose.Schema({
     id: {type: Number},     // share, insurance, others and roi, service ch roi, 
     schoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},
     schoolLoanParticularSpecificationId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanParticularSpecification'},
     schoolLoanParticularAmount: {type: Number},
     
-    
     //type_of_collection: {type: String}, //monthly or once
     for_loan_term_no_paid: {type: Number}, //if it is once
+    collection_type: { type: String }, // Regular, Yearly, Once on demand, Now and continue for n term or last
+    ref_from_date: { type: Date },     // If Once on demand, Now and continue for n term or last
+    ref_to_date: { type: Date },       // If Once on demand, Now and continue for n term or last
+    ref_total_days: { type: Number },  // If Once on demand, Now and continue for n term or last    
     is_done: {type: mongoose.Schema.Types.Boolean, default: false},//if it is once, and done or not
 
     
+
+
+
     schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
     status: {type: String, required: true, default: 'active'},
     remarks: {type: String},
 
 }, {timestamps: true});
-const SchoolLoanAssignDetails = mongoose.model('SchoolLoanAssignDetail', schoolLoanAssignDetails)
+const SchoolLoanAssignDetails = mongoose.model('SchoolLoanAssignDetail', schoolLoanAssignDetailsSchema)
 
 
 
 
 
-
-const schoolLoanAssign = new mongoose.Schema({
-
+const schoolLoanAssignSchema = new mongoose.Schema({
     id: {type: Number},
     memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},
     //schoolLoanParticularId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanParticular'},
@@ -90,36 +95,38 @@ const schoolLoanAssign = new mongoose.Schema({
     remarks: {type: String},
 
 }, {timestamps: true});
-const SchoolLoanAssign = mongoose.model('SchoolLoanAssign', schoolLoanAssign)
+const SchoolLoanAssign = mongoose.model('SchoolLoanAssign', schoolLoanAssignSchema)
 
 
 
 
 
-
-const schoolLoanPayments = new mongoose.Schema({
-
+const schoolLoanPaymentMandates = new mongoose.Schema({
     id: {type: Number},
-    schoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},    
-    previous_balance: {type: Number},     // copied and assigned (auto)
-    loan_last_term_no_paid: {type: Number},                     // copied max then incremented then current term no assigned (auto)
+    schoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},
+    // schoolLoanPaymentId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanPayment'},
 
-    loan_installment_total: {type: Number},   // calculated at last, then is_done: true
+    // schoolLoanAssignDetailId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssignDetail'},
+    schoolLoanParticularSpecificationId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanParticularSpecification'},
+    schoolLoanParticularAmount: {type: Number},     // calculated and assigned
+    mandateType: {type: String},    // Monthly, Yearly, Once
+
+    loan_mandate_from_date: { type: Date },     // assigned
+    loan_mandate_to_date: { type: Date },       // assigned
+    loan_mandate_total_days: {type: Number},    // calculated
 
     
-    current_balance: {type: Number},          // calculated at last, then is_done: true
+    
+    is_done: {type: mongoose.Schema.Types.Boolean, default: false},     // when 'schoolLoanParticularAmount' is confirmed by member, then it will be true    
+    // is_payment_closed: {type: mongoose.Schema.Types.Boolean, default: false},   // when bank deduction is done
 
-    is_done: {type: mongoose.Schema.Types.Boolean, default: false},// when all calculated is done, back-ref should maintaind
-    schoolLoanPaymentDetailIds: [{type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanPaymentDetail'}],
-    
-    is_payment_closed: {type: mongoose.Schema.Types.Boolean, default: false},   // when bank deduction is done
-    
+
     schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
     status: {type: String, required: true, default: 'active'},
     remarks: {type: String},
 
 }, {timestamps: true});
-const SchoolLoanPayment = mongoose.model('SchoolLoanPayment', schoolLoanPayments)
+const SchoolLoanPaymentMandate = mongoose.model('SchoolLoanPaymentMandate', schoolLoanPaymentMandates)
 
 
 
@@ -133,16 +140,17 @@ const schoolLoanPaymentDetails = new mongoose.Schema({
 
     schoolLoanAssignDetailId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssignDetail'},
     schoolLoanParticularSpecificationId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanParticularSpecification'},
+    schoolLoanParticularAmount: {type: Number},     // calculated and assigned
 
     loan_installment_from_date: { type: Date },     // assigned
     loan_installment_to_date: { type: Date },       // assigned
     loan_installment_total_days: {type: Number},    // calculated
 
     
-    schoolLoanParticularAmount: {type: Number},     // calculated, and assigned
-    is_done: {type: mongoose.Schema.Types.Boolean, default: false},     // when 'schoolLoanParticularAmount' is confirmed by member, then it will be true
     
+    is_done: {type: mongoose.Schema.Types.Boolean, default: false},     // when 'schoolLoanParticularAmount' is confirmed by member, then it will be true    
     is_payment_closed: {type: mongoose.Schema.Types.Boolean, default: false},   // when bank deduction is done
+
 
     schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
     status: {type: String, required: true, default: 'active'},
@@ -150,6 +158,42 @@ const schoolLoanPaymentDetails = new mongoose.Schema({
 
 }, {timestamps: true});
 const SchoolLoanPaymentDetails = mongoose.model('SchoolLoanPaymentDetail', schoolLoanPaymentDetails)
+
+
+
+
+
+const schoolLoanPayments = new mongoose.Schema({
+    id: {type: Number},
+    schoolLoanAssignId: {type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanAssign'},    
+    previous_balance: {type: Number},     // copied and assigned (auto)
+    loan_last_term_no_paid: {type: Number},                     // copied max then incremented then current term no assigned (auto)
+
+    loan_installment_total: {type: Number},   // calculated at last, then is_done: true
+
+    
+    current_balance: {type: Number},          // calculated at last, then is_done: true
+    loan_last_term_no_paid: {type: Number},
+
+    is_done: {type: mongoose.Schema.Types.Boolean, default: false},// when all calculated is done, back-ref should maintaind
+    schoolLoanPaymentDetailIds: [{type: mongoose.Schema.Types.ObjectId, ref: 'SchoolLoanPaymentDetail'}],
+    
+    is_payment_closed: {type: mongoose.Schema.Types.Boolean, default: false},   // when bank deduction is done
+    
+
+
+
+    schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+}, {timestamps: true});
+const SchoolLoanPayment = mongoose.model('SchoolLoanPayment', schoolLoanPayments)
+
+
+
+
+
 
 
 // var CounterSchema = Schema({
@@ -185,6 +229,7 @@ module.exports = {
     SchoolLoanAssignDetails,
     SchoolLoanAssign,
 
+    SchoolLoanPaymentMandate,
     SchoolLoanPaymentDetails,
     SchoolLoanPayment,
 
