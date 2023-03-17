@@ -196,6 +196,41 @@ router.post('/login', async (req, res, next) => {
 
 
 
+router.get('/logout', verifyAccessToken, async (req, res, next) => {
+    try{
+        //console.log(req.body);
+        //const result = await loginSchema.validateAsync(req.body);
+        // console.log(result);
+        //const user = await User.findOne({email: result.email});
+        // if(!user){
+        //     throw createError.Conflict(`This user '${result.email}' not registered.`);
+        // }
+        console.log('user:', req.payload.aud);
+        const user = await User.findOne({_id: req.payload.aud});
+
+        user.access_token = null; //await signAccessToken(user._id.toString());
+        user.refresh_token = null; //await signRefreshToken(user._id.toString());
+
+        const savedUser = await user.save()
+
+        console.log(req.payload);
+
+        res.send({
+            user: savedUser,
+            payload: req.payload,
+        });
+
+    }catch(error){
+        if(error.isJoi === true){
+            error.status = 422;
+        }
+        next(error);
+    }
+});
+
+
+
+
 router.post('/forgot_password', async (req, res, next) => {
     try{
         // console.log(req.body);

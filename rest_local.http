@@ -1,5 +1,5 @@
-@ACCESS_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQ5MzAxNzMsImV4cCI6MTY3NTAxNjU3MywiYXVkIjoiNjNhMjdkYWFlMGJlOTRmNWQ1ZjMyMzNhIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.V6ltsNyKx5Zh9Qyl2OYHi4M1uFuD3MM73y1BeNeF1Zc
-@REFRESH_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzQ5MzAxNzMsImV4cCI6MTcwNjQ4Nzc3MywiYXVkIjoiNjNhMjdkYWFlMGJlOTRmNWQ1ZjMyMzNhIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.qJt7MOzmafqZdPUO20CGcUCEO0S6G9_phme5md_Mrgs
+@ACCESS_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkwMTgyNzEsImV4cCI6MTY3OTEwNDY3MSwiYXVkIjoiNjQxM2M0NjFjNzc3OWNlZjAwY2NiMWEwIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.OoWOnJksGjh93NbuiP1VfniirZP0Np2yLFlqI0Y2Z2I
+@REFRESH_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkwMTgyNzEsImV4cCI6MTcxMDU3NTg3MSwiYXVkIjoiNjQxM2M0NjFjNzc3OWNlZjAwY2NiMWEwIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.eNblnpZML4LPfqMhUBPjCmlmsFVjuC483L2YKq7MrnU
 
 @schoolId=630b06b6a199681c56d152d3
 @sessionId=630ee5151774d6692d00c4b8
@@ -46,9 +46,16 @@ POST  http://localhost:5000/api/users/login
 content-type: application/json
 
 {    
-    "email":"hndas20@gmail.com",
+    "email":"hndas2020@gmail.com",
     "password":"ab"
 }
+
+### Logout Page ###
+GET http://localhost:5000/api/users/logout
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
 
 ### Forgot Password Page ###
 POST  http://localhost:5000/api/users/forgot_password
