@@ -42,6 +42,29 @@ const BankLoanParticularSpecification = mongoose.model('BankLoanParticularSpecif
 
 
 
+const bankLoanReceivedSchema = new mongoose.Schema({
+    id: {type: Number},
+    // memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},   
+
+    loan_amount: {type: mongoose.Schema.Types.double},
+    loan_date: { type: Date, default: Date.now },    
+    loan_total_terms: {type: Number},
+    
+
+    current_balance: {type: mongoose.Schema.Types.double},
+    loan_last_term_paid: {type: Number},
+
+    loan_close_date: { type: Date },    // mention only when last payment made
+    
+    BanklId: {type: mongoose.Schema.Types.ObjectId, ref: 'Bank'},
+    schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
+    status: {type: String, required: true, default: 'active'},
+    remarks: {type: String},
+
+}, {timestamps: true});
+const BankLoanReceived = mongoose.model('BankLoanReceived', bankLoanReceivedSchema);
+
+
 
 
 const bankLoanReceivedDetailsSchema = new mongoose.Schema({
@@ -71,30 +94,6 @@ const BankLoanReceivedDetail = mongoose.model('BankLoanReceivedDetail', bankLoan
 
 
 
-
-
-const bankLoanReceivedSchema = new mongoose.Schema({
-    id: {type: Number},
-    // memberId: {type: mongoose.Schema.Types.ObjectId, ref: 'Member'},    
-    
-
-    loan_amount: {type: mongoose.Schema.Types.double},
-    loan_date: { type: Date, default: Date.now },    
-    loan_total_terms: {type: Number},    
-    
-
-    current_balance: {type: mongoose.Schema.Types.double},
-    loan_last_term_paid: {type: Number},
-
-    loan_close_date: { type: Date },
-    
-    BanklId: {type: mongoose.Schema.Types.ObjectId, ref: 'Bank'},
-    schoollId: {type: mongoose.Schema.Types.ObjectId, ref: 'School'},
-    status: {type: String, required: true, default: 'active'},
-    remarks: {type: String},
-
-}, {timestamps: true});
-const BankLoanReceived = mongoose.model('BankLoanReceived', bankLoanReceivedSchema);
 
 
 

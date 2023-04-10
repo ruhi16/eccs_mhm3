@@ -1,5 +1,5 @@
-@ACCESS_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkwMTgyNzEsImV4cCI6MTY3OTEwNDY3MSwiYXVkIjoiNjQxM2M0NjFjNzc3OWNlZjAwY2NiMWEwIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.OoWOnJksGjh93NbuiP1VfniirZP0Np2yLFlqI0Y2Z2I
-@REFRESH_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzkwMTgyNzEsImV4cCI6MTcxMDU3NTg3MSwiYXVkIjoiNjQxM2M0NjFjNzc3OWNlZjAwY2NiMWEwIiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.eNblnpZML4LPfqMhUBPjCmlmsFVjuC483L2YKq7MrnU
+@ACCESS_TOKEN=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODEwNDgzNDMsImV4cCI6MTY4MTEzNDc0MywiYXVkIjoiNjQxNTI1OTc5ZTVjZWZjYmVhOWIxNjc0IiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.aDL1TNRACXxjsOx5SvhDFoKJII26NQFhOrjFm9cwgKY
+@REFRESH_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODEwNDgzNDMsImV4cCI6MTcxMjYwNTk0MywiYXVkIjoiNjQxNTI1OTc5ZTVjZWZjYmVhOWIxNjc0IiwiaXNzIjoicmF3c29sdXRpb25zLmNvbSJ9.qztDZysjCAZ1I-m1NZCDl1QI5LXJfg75CTQnJZ6mrFg
 
 
 
@@ -19,18 +19,18 @@ authorization: {{ACCESS_TOKEN}}
 
 ### Register Page ###
 GET https://shy-cyan-sockeye-vest.cyclic.app/api/users/register
-
+content-type: application/json
 
 ### Test Page ###
 GET https://shy-cyan-sockeye-vest.cyclic.app/api/users/allalong
-
+content-type: application/json
 
 ### Login Page ###
 POST  https://shy-cyan-sockeye-vest.cyclic.app/api/users/login
 content-type: application/json
 
 {    
-    "email":"hndas20@gmail.com",
+    "email":"hndas25@gmail.com",
     "password":"ab"
 }
 

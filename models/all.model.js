@@ -10,9 +10,7 @@ const financialYearSchema = new mongoose.Schema({
 
     status: {type: String, required: true, default: 'inactive'},
     remarks: {type: String},
-
-    // created_at: { type: Date, default: Date.now },
-    // updated_at: { type: Date, default: Date.now },
+    
 }, {timestamps: true});
 const FinancialYear = mongoose.model('FinancialYear', financialYearSchema);
 
