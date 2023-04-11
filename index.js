@@ -8,11 +8,11 @@ dotenv.config();
 const connectDB = require('./utils/database');
 connectDB();
 
-app.use(cors());
-
-
 const app = express();
 app.use(express.json());
+
+app.use(cors());
+
 
 //Log message at console
 app.use(morgan('tiny'));    //tiny, combined, dev
